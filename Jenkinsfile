@@ -36,7 +36,8 @@ pipeline {
         stage('Dependency Analysis - Dependency-Track') {
             steps {
                 sh """
-                   curl -X POST -H 'Content-Type: application/json' -H 'X-Api-Key: ${DEPENDENCY_TRACK_API_KEY}' \\
+                   curl -X POST -H 'Content-Type: application/json' -H 'X-Api-Key: \$DEPENDENCY_TRACK_API_KEY' \\
+
                    -d '{ "project": "your-project-uuid", "bom": "$(cat bom.xml)" }' \\
                    http://dependency-track-server/api/v1/bom
                    """
