@@ -7,9 +7,16 @@ pipeline {
     }
 
     stages {
+        
+        stage('Clean Workspace') {
+            steps {
+                deleteDir() // Clean the workspace
+            }
+        }
+        
         stage('Checkout') {
             steps {
-                git 'https://github.com/yoonhoqpt/learnDevSecOps.git'
+                git branch: 'main', url: 'https://github.com/yoonhoqpt/learnDevSecOps.git'
             }
         }
 
