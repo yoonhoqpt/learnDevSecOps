@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                sh 'npm install'
-            }
-        }
+        // stage('Install Dependencies') {
+        //     steps {
+        //         sh 'npm install'
+        //     }
+        // }
 
         stage('Static Code Analysis - SonarQube') {
             steps {
