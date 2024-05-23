@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
-        DEPENDENCY_TRACK_API_KEY = credentials('dependency-track-api-key')
+        // DEPENDENCY_TRACK_API_KEY = credentials('dependency-track-api-key')
     }
 
     stages {
