@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONARQUBE_SCANNER_HOME = tool 'SonarQubeScanner'
+        SONARQUBE_URL = 'http://localhost:9000'
         // DEPENDENCY_TRACK_API_KEY = credentials('dependency-track-api-key')
     }
 
@@ -28,8 +28,8 @@ pipeline {
 
         stage('Static Code Analysis - SonarQube') {
             steps {
-                withSonarQubeEnv('sonarQubeTest') {
-                    sh "${SONARQUBE_SCANNER_HOME}/bin/sonar-scanner"
+                withSonarQubeEnv('SonarQube') {
+                    sh 'sonar-scanner -Dsonar.projectKey=my_project -Dsonar.sources=./src -Dsonar.host.url=${SONARQUBE_URL}'
                 }
             }
         }
